@@ -1,0 +1,22 @@
+1.使用UserCF推荐
+  -->导入数据Train,Test
+  
+  -->用户相似度矩阵W=UserSimilarity(U,V),使用余弦相似度
+  
+  -->取前N个相似度最大用户User(Top-N),计算每个相似用户的项Item(v,i)*W(u,v),统计求和作为用户u在项i的评分
+     特点：使用相似用户的兴趣,扩大用户的兴趣项
+  
+  -->取用户评分最高的K个评分项,作为用户的推荐。
+  
+2.使用ItemCF推荐
+  -->导入数据Train,Test
+  
+  -->物品相似度矩阵W=ItemSimilarity(U,V),使用余弦相似度
+  
+  -->取用户User(u)的已有项,计算Item(u)每个项的前N个相似度最大项Item(Top-N),Item(u,i)*W(i,j)统计求和作为u用户评分
+     特点：使用相似项,扩大用户的兴趣项
+     
+  -->取用户评分最高的K个项,作为用户的推荐。
+  
+ 3.LFM
+   Score(U,V) 用户、物品矩阵可以拆分为：  Score(U,V)~Person(U,K)*Item(K,I),如果
