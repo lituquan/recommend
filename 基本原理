@@ -19,4 +19,6 @@
   -->取用户评分最高的K个项,作为用户的推荐。
   
  3.LFM
-   Score(U,V) 用户、物品矩阵可以拆分为：  Score(U,V)~Person(U,K)*Item(K,I),如果
+   Score(U,V) 用户、物品矩阵可以拆分为：  Score(U,V)~Person(U,K)*Item(K,I),不断修正Person(U,K)*Item(K,I)使得误差减小。
+   
+   训练结束，反过来计算得到Pre Score(U,V)
