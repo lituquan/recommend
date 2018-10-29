@@ -2,7 +2,7 @@
 '''
 	1.参考项亮《推荐系统实战》
 	2.https://github.com/Lockvictor/MovieLens-RecSys
-	3.数据集:ml-100k
+	3.数据集:ml-100k, http://files.grouplens.org/datasets/movielens/ml-100k.zip
 	4.环境为：python3.5.2
 '''
 import random
@@ -191,9 +191,9 @@ def loadfile(filename):
     for i, line in enumerate(fp):
         yield line.strip('\r\n')
         if i % 100000 == 0:
-            print('loading %s(%s)' % (filename, i), file=sys.stderr)
+            print('loading %s(%s)' % (filename, i))
     fp.close()
-    print('load %s succ' % filename, file=sys.stderr)
+    print('load %s succ' % filename)
 
 def generate_dataset(filename, pivot=0.7):
     ''' load rating data and split it to training set and test set '''
@@ -214,9 +214,9 @@ def generate_dataset(filename, pivot=0.7):
             testset[user][movie] =1 #int(rating)
             testset_len += 1
 
-    print ('split training set and test set succ', file=sys.stderr)
-    print ('train set = %s' % trainset_len, file=sys.stderr)
-    print ('test set = %s' % testset_len, file=sys.stderr)
+    print ('split training set and test set succ')
+    print ('train set = %s' % trainset_len)
+    print ('test set = %s' % testset_len)
     return trainset,testset
 
 def GetRecommandation(user,N):
